@@ -14,3 +14,8 @@ test('digit: [9]', ()=>{
   const digit = [9]
   expect(letterCombinations(digit)).toEqual(["w","x","y","z"]);
 })
+
+test('digit: [9]', ()=>{
+  const digit = []
+  expect(letterCombinations(digit)).toEqual([]);
+})
