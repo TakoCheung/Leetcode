@@ -1,9 +1,11 @@
+const util = require('../Utils/combinations')
+
 var letterCombinations = function (digits) {
 	if (!digits.length) {
 		return [];
 	}
 
-	const digitToLetters = {
+  util.setN({
 		2: "abc",
 		3: "def",
 		4: "ghi",
@@ -12,26 +14,10 @@ var letterCombinations = function (digits) {
 		7: "pqrs",
 		8: "tuv",
 		9: "wxyz",
-	};
+	})
+  util.setC(digits)
 
-	const res = [];
-
-	function backtrack(idx, comb) {
-		// console.log("1: ", idx, comb);
-		if (idx === digits.length) {
-			res.push(comb);
-			return;
-		}
-
-		for (const letter of digitToLetters[digits[idx]]) {
-			// console.log("2: ", idx, comb, letter);
-			backtrack(idx + 1, comb + letter);
-		}
-	}
-
-	backtrack(0, "");
-
-	return res;
+	return util.backtrack(0, "");
 };
 
 module.exports = letterCombinations;
