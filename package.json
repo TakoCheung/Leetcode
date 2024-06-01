@@ -1,5 +1,12 @@
 {
   "devDependencies": {
     "jest": "^29.7.0"
+  },
+  "jest": {
+    "globals": {
+      "__DEV__": null
+    },
+    "globalSetup": "./jestGlobalSetup.js",
+    "globalTeardown": "./jestGlobalTeardown.js"
   }
 }
