@@ -5,7 +5,10 @@ var letterCombinations = function (digits) {
 		return [];
 	}
 
-  util.setN({
+  // util.setN()
+  // util.setC()
+
+	return util.backtrack({
 		2: "abc",
 		3: "def",
 		4: "ghi",
@@ -14,10 +17,7 @@ var letterCombinations = function (digits) {
 		7: "pqrs",
 		8: "tuv",
 		9: "wxyz",
-	})
-  util.setC(digits)
-
-	return util.backtrack(0, "");
+	}, digits);
 };
 
 module.exports = letterCombinations;

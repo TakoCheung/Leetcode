@@ -1,30 +1,16 @@
-let n;
-let c;
-let ret = [];
+function backtrack(n, c) {
+  let ret = []
+  function helper(idx, comb) {
+    if (idx === c.length) {
+      ret.push(comb);
+      return;
+    }
 
-function setN(value) {
-  cleanUp()
-  n = value;
-}
-
-function cleanUp(){
-  ret = []
-}
-
-function setC(value) {
-  cleanUp()
-  c = value;
-}
-
-function backtrack(idx, comb) {
-  if (idx === c.length) {
-    ret.push(comb);
-    return;
+    for (const letter of n[c[idx]]) {
+      helper(idx + 1, comb + letter);
+    }
   }
-
-  for (const letter of n[c[idx]]) {
-    backtrack(idx + 1, comb + letter);
-  }
+  helper(0,[])
   return ret
 }
 
@@ -50,7 +36,5 @@ function getCombinations(arr, k) {
 
 module.exports = {
   backtrack: backtrack,
-  setN: setN,
-  setC: setC,
   getCombinations: getCombinations
 };
